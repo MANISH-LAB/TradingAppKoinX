@@ -1,7 +1,7 @@
 import React from 'react';
 
 const TeamMemberCard = ({ image, name, designation, text }) => (
-  <div className="bg-blue-100 rounded-lg p-6 flex m-2 justify-start items-center">
+  <div className="bg-blue-100 rounded-lg p-6 flex m-4 justify-start items-center">
     <div>
       <img src={image} alt={name} className="w-[7rem] h-[8rem] rounded-md mb-4" />
       <h3 className="text-l font-bold">{name}</h3>
