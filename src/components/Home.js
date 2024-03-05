@@ -3,6 +3,8 @@ import Header from './Header';
 import TrendingCoins from './TrendingCoins';
 import TeamSection from './TeamSection';
 import Tokenomics from './Tokenomics';
+import AboutCoin from './AboutCoin';
+import GetStarted from './GetStarted';
 
 const Home = () => {
   
@@ -12,8 +14,10 @@ const Home = () => {
       <Header />
       
       <TrendingCoins />
+      {/* <AboutCoin/> */}
       <Tokenomics/>
       <TeamSection/>
+      <GetStarted/>
       
     </div>
   );
