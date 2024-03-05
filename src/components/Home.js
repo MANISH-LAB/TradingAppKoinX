@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import TrendingCoins from './TrendingCoins';
+import TeamSection from './TeamSection';
 
 const Home = () => {
   
@@ -10,6 +11,7 @@ const Home = () => {
       <Header />
       
       <TrendingCoins />
+      <TeamSection/>
       
     </div>
   );
