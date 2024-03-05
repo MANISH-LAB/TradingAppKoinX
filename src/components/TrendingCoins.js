@@ -1,5 +1,5 @@
 import React ,{useState,useEffect} from 'react';
-import { DEMO_API_KEY,BASE_URL } from '../utils/constants';
+import { DEMO_API_KEY,BASE_URL } from '../utils/constants/APIConstants';
 const TrendingCoins = () => {
     const [coins,setCoins]=useState([]);
     const options = {method: 'GET', headers: {'x-cg-demo-api-key': DEMO_API_KEY}};
