@@ -20,7 +20,7 @@ const Home = () => {
       <Tokenomics/>
       <GetStarted/>
       <TrendingCoins />
-      {/* <AboutCoin/> */}
+      <AboutCoin/>
       
       <TeamSection/>
       
