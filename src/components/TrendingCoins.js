@@ -17,27 +17,27 @@ const TrendingCoins = () => {
     },[])
 
   return coins.length>0 ?(
-    <section className="bg-gray-100 py-12">
-      <div className="container mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-12">Trending Coins (24h)</h2>
-        <div className="flex flex-wrap -mx-3">
+    <section className="bg-gray-100 py-12 ">
+      <div className="container ml-auto w-[27%] bg-white rounded-md">
+        <h2 className="text-2xl font-bold text-center my-4 py-4">Trending Coins (24h)</h2>
+      
     
           {coins.slice(0,3).map((coin, index) => (
-            <div key={index} className="lg:w-1/4 md:w-1/3 px-3 mb-6">
-              <article className="h-full shadow-lg rounded-lg overflow-hidden">
-                <div className="bg-blue-500 text-white p-4">
+            <div key={index} className=" w-[100%] px-3 mb-6">
+              <ul className="h-full  flex  justify-between rounded-lg overflow-hidden">
+                <li className='flex'>
                   <img className="mb-2" src={coin.item.thumb} alt="logo"/>
-                  <p className="text-sm">{coin.item.symbol}</p>
-                </div>
-                <div className="p-6">
+                  <p className="text-sm p-2">{coin.item.symbol}</p>
+                </li>
+                <li className="p-6">
                   <p className="text-gray-700">Price: {coin.item.data.price}</p>
-                  <p className="text-gray-700">Change: {coin.change}%</p>
-                </div>
-              </article>
+                  {/* <p className="text-gray-700">Change: {coin.change}%</p> */}
+                </li>
+              </ul>
             </div>
           ))}
         </div>
-      </div>
+      
     </section>
   ):null;
 };

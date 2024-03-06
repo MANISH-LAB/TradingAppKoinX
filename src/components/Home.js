@@ -5,6 +5,7 @@ import TeamSection from './TeamSection';
 import Tokenomics from './Tokenomics';
 import AboutCoin from './AboutCoin';
 import GetStarted from './GetStarted';
+import SentimentCard from './SentimentCard';
 
 const Home = () => {
   
@@ -12,12 +13,16 @@ const Home = () => {
   return (
     <div className='bg-gray-100'>
       <Header />
-      
+      <div className='flex flex-col '>
+        <SentimentCard/>
+      <Tokenomics/>
+      <GetStarted/>
       <TrendingCoins />
       {/* <AboutCoin/> */}
-      <Tokenomics/>
+      
       <TeamSection/>
-      <GetStarted/>
+      
+      </div>
       
     </div>
   );
