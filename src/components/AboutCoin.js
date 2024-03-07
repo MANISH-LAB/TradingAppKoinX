@@ -1,13 +1,21 @@
 
-import React from 'react'
+import React, { useEffect } from 'react'
+import useGetCryptoData from '../utils/hooks/useGetCryptoData'
 
 
 const AboutCoin = () => {
-
+  
+    useGetCryptoData("bitcoin"); // get data for Bitcoin by default. Can be changed to any other cryptocurrency
+  
   return (
     <div className='w-[65%] m-6 p-8 bg-white'>
 <h1 className='font-semibold text-3xl mb-4'>About Bitcoin</h1>
+<div>
 <h2 className='font-semibold text-2xl'>What is Bitcoin? </h2>
+<p>
+
+</p>
+</div>
 <div className= "rounded-lg ">
       {/* Lorem Ipsum section */}
       <div className="mt-8 text-gray-600 font-semibold border-y-slate-300 border-y-2 py-4">
