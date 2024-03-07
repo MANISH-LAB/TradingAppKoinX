@@ -1,19 +1,25 @@
 import React ,{useState,useEffect} from 'react';
 import { DEMO_API_KEY,BASE_URL } from '../utils/constants/APIConstants';
+import {useDispatch} from "react-redux";
+import { addData } from '../utils/redux-store/TrendingCoinSlice';
 const TrendingCoins = () => {
     const [coins,setCoins]=useState([]);
-    const options = {method: 'GET', headers: {'x-cg-demo-api-key': DEMO_API_KEY}};
-
+    // const options = {method: 'GET', headers: {'x-cg-demo-api-key': DEMO_API_KEY}};
+    const dispatch=useDispatch();
+    const fetchdata=async ()=>{
+      
+       const response =await fetch(BASE_URL+'/search/trending')
+      const data= await response.json()
+      
+      setCoins(data.coins);
+      dispatch(addData(coins))
+      console.log("yeh h kya",coins)
+      
+     
+    }
     useEffect(()=>{
                 
-        fetch(BASE_URL+'/search/trending', options)
-        .then(response => response.json())
-        .then(response => {console.log(response)
-        setCoins(response.coins);
-        console.log(coins.item.thumb)
-        })
-        .catch(err => console.error(err));
-
+fetchdata();
     },[])
 
   return coins.length>0 ?(

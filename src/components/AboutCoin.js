@@ -4,18 +4,18 @@ import useGetCryptoData from '../utils/hooks/useGetCryptoData'
 import {useSelector} from "react-redux"
 import formatNumberWithSuffix from '../utils/NumberOperations/formatNumberWithSuffix'
 
-const AboutCoin = () => {
+const AboutCoin = ({id}) => {
   
-    useGetCryptoData("bitcoin"); // get data for Bitcoin by default. Can be changed to any other cryptocurrency
+    useGetCryptoData(id); // get data for Bitcoin by default. Can be changed to any other cryptocurrency
     
     const store=useSelector(store=> store.ChosenCrypto.data)
     const {name,symbol, current_price,price_change_percentage_24h,total_volume
     , price_change_percentage_7d_in_currency, circulating_supply,total_supply,high_24h,low_24h} =store || {}
   return (
     <div className='w-[65%] m-6 p-8 bg-white'>
-      {store ?<> <h1 className='font-semibold text-3xl mb-4'>About Bitcoin</h1>
+      {store ?<> <h1 className='font-semibold text-3xl mb-4'>About {id}</h1>
 <div className='font-semibold text-gray-600'>
-<h2 className='text-2xl'>What is Bitcoin? </h2>
+<h2 className='text-2xl'>What is {id}? </h2>
 <p className='text-lg'>{name}'s Price today is US${current_price}, with a 24-hour trading volume of $
           {formatNumberWithSuffix(total_volume)}. {symbol.toUpperCase()} is{' '}
           {price_change_percentage_24h >= 0 ? '+' : '-'}
