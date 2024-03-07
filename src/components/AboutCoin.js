@@ -1,21 +1,31 @@
 
 import React, { useEffect } from 'react'
 import useGetCryptoData from '../utils/hooks/useGetCryptoData'
-
+import {useSelector} from "react-redux"
+import formatNumberWithSuffix from '../utils/NumberOperations/formatNumberWithSuffix'
 
 const AboutCoin = () => {
   
     useGetCryptoData("bitcoin"); // get data for Bitcoin by default. Can be changed to any other cryptocurrency
-  
+    
+    const store=useSelector(store=> store.ChosenCrypto.data)
+    const {name,symbol, current_price,price_change_percentage_24h,total_volume
+    , price_change_percentage_7d_in_currency, circulating_supply,total_supply,high_24h,low_24h} =store || {}
   return (
     <div className='w-[65%] m-6 p-8 bg-white'>
-<h1 className='font-semibold text-3xl mb-4'>About Bitcoin</h1>
-<div>
-<h2 className='font-semibold text-2xl'>What is Bitcoin? </h2>
-<p>
-
+      {store ?<> <h1 className='font-semibold text-3xl mb-4'>About Bitcoin</h1>
+<div className='font-semibold text-gray-600'>
+<h2 className='text-2xl'>What is Bitcoin? </h2>
+<p className='text-lg'>{name}'s Price today is US${current_price}, with a 24-hour trading volume of $
+          {formatNumberWithSuffix(total_volume)}. {symbol.toUpperCase()} is{' '}
+          {price_change_percentage_24h >= 0 ? '+' : '-'}
+          {Math.abs(price_change_percentage_24h.toFixed(2))}% in the last 24 hours. It is currently {price_change_percentage_7d_in_currency >= 0 ? '+' : '-'}
+          {Math.abs(price_change_percentage_7d_in_currency.toFixed(2))} from
+          its 7-day all time high of $ {high_24h} and {- 3.12} from its 7 day all time low of $ {low_24h}.
+          {symbol.toUpperCase()} has a circulating supply of {formatNumberWithSuffix(circulating_supply)} {symbol.toUpperCase()} and a max supply of {formatNumberWithSuffix(total_supply)} {symbol.toUpperCase()}.
 </p>
-</div>
+</div> </>: null}
+
 <div className= "rounded-lg ">
       {/* Lorem Ipsum section */}
       <div className="mt-8 text-gray-600 font-semibold border-y-slate-300 border-y-2 py-4">
